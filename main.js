@@ -12,11 +12,14 @@ return sumOfNums;
 }
 sum(prices) / prices.length
 //answer 2
-var itemSearch = items.filter (function (element,idx,arr){
+var itemSearch = items.filter(function (element){
   return element.price >= 14.00 && element.price <= 18.00 && element.currency_code === "USD"
 }).map (function (element,idx,arr){
-  return element.title
+  return element.title;
 });
+var arrySearch = itemSearch.map(function(element){
+  return element.title;
+})
 //answer 3
 var currencyCodeFinder = items.filter (function(element,idx,arr){
   return element.currency_code === "GBP"
@@ -26,7 +29,7 @@ var currencyCodeFinder = items.filter (function(element,idx,arr){
 //answer 4
 var itemWood = items.filter (function(element,idx,arr){
  console.log(element.materials);
-  return element.materials.indexof("wood") !== -1
+  return element.materials.indexof("wood") !== -1;
 }).map (function (element,idx,arr){
   return element.title
 })
@@ -34,20 +37,32 @@ var itemWood = items.filter (function(element,idx,arr){
 var eightOrmore = items.filter (function(element,idx,arr){
  return element.materials.length >= 8;
 })
-console.log ("materials")
-
-var displayItems = eightOrmore.map (function(element,idx,arr){
-  return element.title.""
+.map (function(element){
+  return{
+    Title: element.title,
+    count: element.quantity,
+    matarials: elemnt.materials
+  }
 })
 
-var displayItems = eightOrmore.map (function(element,idx,arr){
-  return element.material,
+var myHtml= eightOrmore.map(function(element)){
+
+  var stringOfmaterials = "<ul>"
+  element.materials.forEach(function(material){
+    stringOfmaterials += `<li> ${material} </li>`;
+  });
+    stringOfmaterials += "</ul>";
+return`<h1>${eightOrmore.title}<h1/>
+       <h3> Quantity: ${element.count}</h3>
+
+
+
+
+
+      `
 })
 
-var displayItems = eightOrmore.map (function(element,idx,arr){
-  return element.material.length,
-})
-// answer 6
-var sellerMade = items.map (function(element,idx,arr){
- return element.who_made === "i_did"
-})
+
+var sum = items.reduce(function(accumulator,element,idx,arr){
+  return accumulator + element.price;
+},0)
