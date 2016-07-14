@@ -54,11 +54,6 @@ var myHtml= eightOrmore.map(function(element)){
     stringOfmaterials += "</ul>";
 return`<h1>${eightOrmore.title}<h1/>
        <h3> Quantity: ${element.count}</h3>
-
-
-
-
-
       `
 })
 
